@@ -1,3 +1,4 @@
+import { logger } from "@sentry/nextjs";
 import { requireAuth } from "@/lib/auth-utils";
 import { caller } from "@/trpc/server";
 import { LogoutButton } from "./logout";
@@ -7,6 +8,8 @@ export default async function Home() {
   await requireAuth();
 
   const data = await caller.getUsers();
+
+  logger.info("User triggered test log", { log_source: "sentry_test" });
 
   return (
     <div className="min-h-screen min-w-screen flex items-center justify-center flex-col gap-6">
