@@ -11,7 +11,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         >
           <Image
             src="/logos/logo.svg"
-            alt="Doc Center"
+            alt="Doc Central"
             width={20}
             height={20}
           />

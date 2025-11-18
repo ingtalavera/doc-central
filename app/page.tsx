@@ -1,6 +1,7 @@
 import { requireAuth } from "@/lib/auth-utils";
 import { caller } from "@/trpc/server";
 import { LogoutButton } from "./logout";
+import { ThemeButton } from "./theme-button";
 
 export default async function Home() {
   await requireAuth();
@@ -12,6 +13,7 @@ export default async function Home() {
       Protected server component
       <pre>{JSON.stringify(data, null, 2)}</pre>
       <LogoutButton />
+      <ThemeButton />
     </div>
   );
 }
