@@ -1,7 +1,6 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -26,6 +25,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 
 const registerSchema = z
   .object({
@@ -34,7 +34,7 @@ const registerSchema = z
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Password don't match",
+    message: "Passwords don't match",
     path: ["confirmPassword"],
   });
 
@@ -90,17 +90,29 @@ export const RegisterForm = () => {
                     variant="outline"
                     className="w-full"
                     type="button"
-                    disabled={isPending}
+                    disabled={true}
                   >
-                    Continue with Github
+                    <Image
+                      src="/logos/github.svg"
+                      alt="Github"
+                      width={20}
+                      height={20}
+                    />
+                    Continue with Github (Coming Soon)
                   </Button>
                   <Button
                     variant="outline"
                     className="w-full"
                     type="button"
-                    disabled={isPending}
+                    disabled={true}
                   >
-                    Continue with Google
+                    <Image
+                      src="/logos/google.svg"
+                      alt="Google"
+                      width={20}
+                      height={20}
+                    />
+                    Continue with Google (Coming Soon)
                   </Button>
                 </div>
 
